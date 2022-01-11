@@ -1463,30 +1463,12 @@
         rules(settings)
     ];
 
-    //new 
-    const path = require('path');
-    const express = require('express');
-    const app = express();
-    const publicPath = path.join(__dirname, 'public');
-    const port = process.env.PORT || 3000;
-
-    app.use(express.static(publicPath));
-    app.get('/*', (req, res) => {
-        res.sendFile(path.join(publicPath, 'index.html'));
-    });
-    app.listen(port, () => {
-        console.log('Server is up!');
-        console.log(`Server started on port ${port}. You can make requests to http://localhost:${port}/`);
-    });
-
-
-    //old
     const server = http__default['default'].createServer(requestHandler(plugins, services));
 
-    const serverPort = process.env.SERVERPORT || 3030;
-    server.listen(serverPort);
-    console.log(`Server started on port ${serverPort}. You can make requests to http://localhost:${serverPort}/`);
-    console.log(`Admin panel located at http://localhost:${serverPort}/admin`);
+    const port = process.env.PORT || 3030;
+    server.listen(port);
+    console.log(`Server started on port ${port}. You can make requests to http://localhost:${port}/`);
+    console.log(`Admin panel located at http://localhost:${port}/admin`);
 
     var softuniPracticeServer = {
 
